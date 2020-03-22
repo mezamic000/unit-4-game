@@ -1,2 +1,16 @@
-create a function that generates a random number from 19-120
+create a function that generates a random number between 19-120
+    -a new random number should be generated at the start of every round/game
+
+Make the four crystal imagages buttons
+    -Each crystal should have a random (hidden) value between 1-12
+    -when button is pressed the hidden value should be added to the players score
+    -new values should be assigned to each crystal every new round/game
+
+Create a function that checks for a win/loss
+    -check if player's score equals the random number
+        -if true, add 1 to the wins score
+        else, check if player's score is less than random number
+            - if true, allow player to keep select another crystal
+            if else, check if player's score is above the random number
+                - if true, add 1 to the losses score 
 
