@@ -14,3 +14,8 @@ Create a function that checks for a win/loss
             if else, check if player's score is above the random number
                 - if true, add 1 to the losses score 
 
+The game restarts whenever the player wins or loses
+    - new random number generates
+    -crystals get assigned new values
+    -Players score will rest to zero
+    
