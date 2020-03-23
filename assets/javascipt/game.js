@@ -9,6 +9,7 @@ $(document).ready(function() {
 	var crystalFour = 0;
 	var lockGame = false;
 	var counter = 0;
+	var crystalValues = [];
 
 	function reset() {
 		//generates the random number and displays it
@@ -39,7 +40,21 @@ $(document).ready(function() {
 		$("#crystalBlue").val(crystalFour);
 		console.log(crystalFour);
 	}
-	reset();
+
+    function logic() {
+        $(".selectCrystal").on("click", function() {
+            if (counter === targetNumber) {
+                alert("You Win!");
+                reset();
+                wins++;
+                $("#wins").text(wins)
+    } else if (counter > targetNumber) {
+        alert("You Lost!");
+        reset();
+        losses++;
+        $(#losses)
+    }
+}
 
 	$("#crystalOrange").on("click", function() {
 		crystalOne + -playerScoreCounter;
@@ -47,10 +62,8 @@ $(document).ready(function() {
 		$("#score").text(playerScoreCounter);
 	});
 
-	$(".selectCrystal").on("click", function() {
-		if (counter === targetNumber) {
-			wins++;
-		} else counter > targetNumber;
+	
+		
 	});
 
 	function clear() {}
