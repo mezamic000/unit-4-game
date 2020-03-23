@@ -33,14 +33,14 @@ $(document).ready(function() {
 		$("#crystalBlue").val(crystalFour);
 		console.log(crystalFour);
 		//generates a random value for the yellow crystal
+
+		$("#crystalOrange").on("click", function() {
+			crystalOne + -playerScoreCounter;
+			console.log(playerScoreCounter);
+			$("#score").text(playerScoreCounter);
+		});
 	}
 	start();
-
-	$("#crystalOrange").on("click", function() {
-		playerScoreCounter += crystalOne;
-		$("#score").text(playerScoreCounter);
-		console.log(playerScoreCounter);
-	});
 
 	$(".selectCrystal").on("click", function() {
 		if (counter === targetNumber) {

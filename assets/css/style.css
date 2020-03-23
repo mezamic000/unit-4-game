@@ -1,8 +1,19 @@
 body {
-	background-color: aquamarine;
+	background-color: yellow;
+	font-family: monospace;
 }
 
 .container {
+}
+
+#randomNumber {
+	font-size: 100px;
+}
+
+#score,
+#wins,
+#losses {
+	font-size: 50px;
 }
 
 h1 {
@@ -16,7 +27,7 @@ h1 {
 	justify-content: space-evenly;
 }
 
-img {
+.selectCrystal {
 	width: 150px;
 	height: 150px;
 	margin: 10px;
@@ -24,4 +35,17 @@ img {
 
 #wins {
 	display: block;
+}
+
+.navbar-brand {
+	font-family: monospace;
+	font-size: 50px;
+}
+
+.navbar navbar-light bg-light {
+	border-bottom: black solid 1px;
+}
+
+.nav-link {
+	font-size: 25px;
 }
