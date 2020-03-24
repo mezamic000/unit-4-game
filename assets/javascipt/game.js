@@ -9,7 +9,6 @@ $(document).ready(function() {
 	var crystalFour = 0;
 	var lockGame = false;
 	var counter = 0;
-	var crystalValues = [];
 
 	function reset() {
 		//generates the random number and displays it
@@ -46,21 +45,11 @@ $(document).ready(function() {
 	function logic() {
 		$(".selectCrystal").on("click", function() {
 			var crystalButton = $(this);
-			var holdScore = $();
-			// if (counter === targetNumber) {
-			// 	alert("You Win!");
-			// 	reset();
-			// 	wins++;
-			// 	$("#wins").text(wins);
-			// } else if (counter > targetNumber) {
-			// 	alert("You Lost!");
-			// 	reset();
-			// 	losses++;
-			// 	$("#losses").text(losses);
-			// }
+			var holdScore = $("#playerScore");
+			holdScore = holdScore + crystalButton;
+			$("#playerScore").val(holdScore);
+			$("#playerScore").text("Your Total Score Is: " + holdScore);
 		});
-
-		function winLose() {}
 
 		// $("#crystalOrange").on("click", function() {
 		// 	crystalOne += playerScoreCounter;
@@ -69,8 +58,18 @@ $(document).ready(function() {
 		// });
 	}
 	logic();
+
+	function winLose() {
+		if (holdSocre === targetNumber) {
+			alert("You Win!");
+			reset();
+			wins++;
+			$("#wins").text(wins);
+		} else if (holdScore > targetNumber) {
+			alert("You Lost!");
+			reset();
+			losses++;
+			$("#losses").text(losses);
+		}
+	}
 });
-// console.log(crystalButton.val());
-// 			console.log(crystalButton);
-// 			console.log(this);
-// 			console.log($("#playerScore"));
