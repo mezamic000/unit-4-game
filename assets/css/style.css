@@ -3,17 +3,14 @@ body {
 	font-family: monospace;
 }
 
-.container {
-}
-
 #randomNumber {
-	font-size: 75px;
+	font-size: 50px;
 }
 
 #score,
 #wins,
 #losses {
-	font-size: 50px;
+	font-size: 25px;
 }
 
 h1 {

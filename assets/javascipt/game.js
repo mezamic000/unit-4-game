@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	var targetNumber = 0;
-	var playerScoreCounter = 0;
+	var randomTargetNumber = 0;
+	var totalScore = 0;
 	var wins = 0;
 	var losses = 0;
 	var crystalOne = 0;
@@ -9,67 +9,85 @@ $(document).ready(function() {
 	var crystalFour = 0;
 	var lockGame = false;
 	var counter = 0;
+	var p;
 
-	function reset() {
+	function generateRandomNumber() {
 		//generates the random number and displays it
-		var targetNumber = Math.floor(Math.random() * 120) + 19;
-		$("#randomNumber").text(targetNumber);
+		randomTargetNumber = Math.floor(Math.random() * 120) + 19;
+		$("#randomNumber").text(randomTargetNumber);
+	}
+	generateRandomNumber();
 
-		//starts the players score at 0 and displays it
-		var playerScoreCounter = 0;
-		$("#playerScore").val(playerScoreCounter);
-		$("#playerScore").text("Your Total Score Is: " + playerScoreCounter);
-
+	function generateCrystalValues() {
 		//generates a random value for the orange crystal
-		var crystalOne = Math.floor(Math.random() * 12) + 1;
+		crystalOne = Math.floor(Math.random() * 12) + 1;
 		$("#crystalOrange").val(crystalOne);
 		console.log(crystalOne);
 
 		//generates a random value for the yellow crystal
-		var crystalTwo = Math.floor(Math.random() * 12) + 1;
-		$("#crystalYellow").val(crystalTwo);
+		crystalTwo = Math.floor(Math.random() * 12) + 1;
+		// $("#crystalYellow").val(crystalTwo);
 		console.log(crystalTwo);
 
 		//generates a random value for the red crystal
-		var crystalThree = Math.floor(Math.random() * 12) + 1;
-		$("#crystalRed").val(crystalThree);
+		crystalThree = Math.floor(Math.random() * 12) + 1;
+		// $("#crystalRed").val(crystalThree);
 		console.log(crystalThree);
 
 		//generates a random value for the yellow crystal
-		var crystalFour = Math.floor(Math.random() * 12) + 1;
-		$("#crystalBlue").val(crystalFour);
+		crystalFour = Math.floor(Math.random() * 12) + 1;
+		// $("#crystalBlue").val(crystalFour);
 		console.log(crystalFour);
 	}
-	reset();
 
-	function logic() {
-		$(".selectCrystal").on("click", function() {
-			var crystalButton = $(this);
-			var holdScore = $("#playerScore");
-			holdScore = holdScore + crystalButton;
-			$("#playerScore").val(holdScore);
-			$("#playerScore").text("Your Total Score Is: " + holdScore);
-		});
-
-		// $("#crystalOrange").on("click", function() {
-		// 	crystalOne += playerScoreCounter;
-		// 	console.log(playerScoreCounter);
-		// 	$("#score").text(playerScoreCounter);
-		// });
+	function start() {
+		$("#playerScore").text("Your Total Score Is: " + totalScore);
+		$("#wins").text("wins: " + wins);
+		$("#losses").text("losses: " + losses);
+		generateRandomNumber();
+		generateCrystalValues();
 	}
-	logic();
+	start();
 
-	function winLose() {
-		if (holdSocre === targetNumber) {
-			alert("You Win!");
-			reset();
+	$("#crystalOrange").on("click", function() {
+		totalScore = totalScore + crystalOne;
+		$("#playerScore").text("Your Total Score Is: " + totalScore);
+		scoring();
+	});
+
+	$("#crystalYellow").on("click", function() {
+		totalScore = totalScore + crystalTwo;
+		$("#playerScore").text("Your Total Score Is: " + totalScore);
+		scoring();
+	});
+
+	$("#crystalRed").on("click", function() {
+		totalScore = totalScore + crystalThree;
+		$("#playerScore").text("Your Total Score Is: " + totalScore);
+		scoring();
+	});
+
+	$("#crystalBlue").on("click", function() {
+		totalScore = totalScore + crystalFour;
+		$("#playerScore").text("Your Total Score Is: " + totalScore);
+		scoring();
+	});
+
+	function scoring() {
+		if (totalScore === randomTargetNumber) {
 			wins++;
-			$("#wins").text(wins);
-		} else if (holdScore > targetNumber) {
-			alert("You Lost!");
-			reset();
+			$("#wins").text("wins: " + wins);
+			alert("You won a point! " + totalScore + " = " + randomTargetNumber);
+			totalScore = 0;
+			start();
+		} else if (totalScore > randomTargetNumber) {
 			losses++;
-			$("#losses").text(losses);
+			$("#losses").text("losses: " + losses);
+			alert(
+				"You lost! " + totalScore + " is greater than! " + randomTargetNumber
+			);
+			totalScore = 0;
+			start();
 		}
 	}
 });
