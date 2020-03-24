@@ -18,6 +18,7 @@ $(document).ready(function() {
 
 		//starts the players score at 0 and displays it
 		var playerScoreCounter = 0;
+		$("#playerScore").val(playerScoreCounter);
 		$("#playerScore").text("Your Total Score Is: " + playerScoreCounter);
 
 		//generates a random value for the orange crystal
@@ -40,31 +41,36 @@ $(document).ready(function() {
 		$("#crystalBlue").val(crystalFour);
 		console.log(crystalFour);
 	}
+	reset();
 
-    function logic() {
-        $(".selectCrystal").on("click", function() {
-            if (counter === targetNumber) {
-                alert("You Win!");
-                reset();
-                wins++;
-                $("#wins").text(wins)
-    } else if (counter > targetNumber) {
-        alert("You Lost!");
-        reset();
-        losses++;
-        $(#losses)
-    }
-}
+	function logic() {
+		$(".selectCrystal").on("click", function() {
+			var crystalButton = $(this);
+			var holdScore = $();
+			// if (counter === targetNumber) {
+			// 	alert("You Win!");
+			// 	reset();
+			// 	wins++;
+			// 	$("#wins").text(wins);
+			// } else if (counter > targetNumber) {
+			// 	alert("You Lost!");
+			// 	reset();
+			// 	losses++;
+			// 	$("#losses").text(losses);
+			// }
+		});
 
-	$("#crystalOrange").on("click", function() {
-		crystalOne + -playerScoreCounter;
-		console.log(playerScoreCounter);
-		$("#score").text(playerScoreCounter);
-	});
+		function winLose() {}
 
-	
-		
-	});
-
-	function clear() {}
+		// $("#crystalOrange").on("click", function() {
+		// 	crystalOne += playerScoreCounter;
+		// 	console.log(playerScoreCounter);
+		// 	$("#score").text(playerScoreCounter);
+		// });
+	}
+	logic();
 });
+// console.log(crystalButton.val());
+// 			console.log(crystalButton);
+// 			console.log(this);
+// 			console.log($("#playerScore"));
